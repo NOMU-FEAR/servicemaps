@@ -1,6 +1,6 @@
 # ServiceMaps
 
-Welcome to the ServiceMaps! This web application is designed to help you find nearby services and non-profit organizations in the Bay Area, specifically focusing on selection.
+Welcome to the ServiceMaps! This interactive web application is designed to help you find nearby services and non-profit organizations in the Bay Area Community, specifically focusing on selection.
 
 ## Features
 
