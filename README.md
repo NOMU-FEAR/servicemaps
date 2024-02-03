@@ -16,8 +16,8 @@ Join us on this journey to make service selection in the Bay Area easier and mor
 ## Features
 
 - **Location-Based Navigation**: Find services and non-profits based on your current location or by searching for a specific area.
-- **Category Filters**: Filter results by categories such as healthcare, education, social services, and more. [WIP]
-- **Detailed Information**: Get detailed information about each service or organization, including contact details, services offered, and opening hours. [WIP]
-- **User Reviews & Ratings**: Read reviews and ratings from other users to help you make informed decisions. [WIP]
-- **Save Favorites**: Save your favorite services and organizations for quick access later. [WIP]
+- **Category Filters**: Filter results by categories such as healthcare, education, social services, and more. **[WIP]**
+- **Detailed Information**: Get detailed information about each service or organization, including contact details, services offered, and opening hours. **[WIP]**
+- **User Reviews & Ratings**: Read reviews and ratings from other users to help you make informed decisions. **[WIP]**
+- **Save Favorites**: Save your favorite services and organizations for quick access later. **[WIP]**
   
