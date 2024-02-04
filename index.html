@@ -1,0 +1,208 @@
+<html>
+    <body style="background-color:white;"></body>
+    <head>
+        
+
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title></title>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta name="robots" content="noindex, nofollow">
+      <meta name="googlebot" content="noindex, nofollow">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="styles.css">
+      
+
+
+
+    
+    
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="threeitems">
+            <div class="title">Service Maps</div>
+            <div class="menu">
+                <input id="placeInput2" type="text" placeholder="Enter a city">
+                <button id="goButton">Go</button>
+            </div>
+            <div>
+                <p>hi</p>
+
+            </div>
+            </div>
+            <div class="map">
+                <script
+                type="text/javascript"
+                src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+                </script>
+            
+            
+                <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+            
+            
+                  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,places&amp;key=AIzaSyBmXmBlrEMq5MWG81F8TBwU1JvUe86991g"></script>
+            
+            
+              <style id="compiled-css" type="text/css">
+                #map_canvas  {
+                height: 50vw;
+                width: 50vw;
+                }
+            </style>
+        
+        
+        
+        
+        
+              <script id="insert"></script>
+              <div id="map_canvas"></div>
+
+
+
+            </div> 
+            
+          </div>
+
+
+
+
+
+        
+    
+    
+    
+    
+        <script type='text/javascript'>
+        
+    var locations = [
+    ['Tule Ponds', '2000 Stevenson Blvd, Fremont, CA 94538', 'https://www.msnucleus.org/classes/tule.htm'],
+    ['humble abode', '1612 Hidden Creek Lane, Fremont, CA, 94538', 'https://www.youtube.com'],
+   
+];
+// start
+
+var geocoder;
+var map;
+var bounds = new google.maps.LatLngBounds();
+
+
+function initialize() {
+    console.log("hello world")
+    map = new google.maps.Map(
+    document.getElementById("map_canvas"), {
+        center: new google.maps.LatLng(37.4419, -122.1419),
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    geocoder = new google.maps.Geocoder();
+
+
+    for (i = 0; i < locations.length; i++) {
+
+
+
+
+        geocodeAddress(locations, i);
+    }
+}
+google.maps.event.addDomListener(window, "load", initialize);
+
+
+function geocodeAddress(locations, i) {
+    var title = locations[i][0];
+    var address = locations[i][1];
+    var url = locations[i][2];
+    geocoder.geocode({
+        'address': locations[i][1]
+    },
+
+
+    function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var marker = new google.maps.Marker({
+                icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+                map: map,
+                position: results[0].geometry.location,
+                title: title,
+                animation: google.maps.Animation.DROP,
+                address: address,
+                url: url
+            })
+            infoWindow(marker, map, title, address, url);
+            bounds.extend(marker.getPosition());
+            map.fitBounds(bounds);
+        } else {
+            alert("geocode of " + address + " failed:" + status);
+        }
+    });
+}
+
+
+function infoWindow(marker, map, title, address, url) {
+    google.maps.event.addListener(marker, 'click', function () {
+        var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a href='" + url + "'>View location</a></p></div>";
+        iw = new google.maps.InfoWindow({
+            content: html,
+            maxWidth: 350
+        });
+        iw.open(map, marker);
+    });
+}
+
+
+function createMarker(results) {
+    var marker = new google.maps.Marker({
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+        map: map,
+        position: results[0].geometry.location,
+        title: title,
+        animation: google.maps.Animation.DROP,
+        address: address,
+        url: url
+    })
+    bounds.extend(marker.getPosition());
+    map.fitBounds(bounds);
+    infoWindow(marker, map, title, address, url);
+    return marker;
+}
+
+document.getElementById('goButton').addEventListener('click', function() {
+    var geocoder = new google.maps.Geocoder();
+    var address = document.getElementById('placeInput').value;
+    geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            map.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                title: address
+            });
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+});
+
+        // tell the embed parent frame the height of the content
+        if (window.parent && window.parent.parent){
+          window.parent.parent.postMessage(["resultsFrame", {
+            height: document.body.getBoundingClientRect().height,
+            slug: "5zorLwa4"
+          }], "*")
+        }
+    
+    
+        // always overwrite window.name, in case users try to set it manually
+        window.name = "result"
+      </script>
+    
+
+    <footer>
+        <h1> <a href="https://docs.google.com/forms/d/1Q1T3GyR_QEzGjCAZBHCgVyo1WPxVO575cjgY2Coo9wc/prefill">Don't see your service opportunity? Click here</a></h1>
+    </footer>
+
+
+    </body>
+
+
+    </html>
