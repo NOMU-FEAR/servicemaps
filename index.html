@@ -20,13 +20,132 @@
     <body>
         <div class="grid-container">
             <div class="threeitems">
-            <div class="title">Service Maps</div>
-            <div class="menu">
-                <input id="placeInput2" type="text" placeholder="Enter a city">
-                <button id="goButton">Go</button>
+            <div class="title">
+                <h1>Service Maps</h1>
             </div>
-            <div>
-                <p>hi</p>
+            <div class="menu">
+                <input id="placeInput" type="text" placeholder="List Your City or State     ">
+                <button id="goButton">Go</button>
+                <div id="map"></div>
+            </div>
+            <div class="list">
+                <p>
+                    Music for Minors II
+                </p>
+                <p>
+                    Renissance Entrepreneurship Center
+                </p>
+                <p>
+                    Afghan Elderly Association
+                </p>
+                <p>
+                    My Good Brain
+                </p>
+                <p>
+                    Rotary Club of Fremont
+                </p>
+                <p>
+                    Privilege Nonprofit
+                </p>
+                <p>
+                    Olive Hyde Art Guild
+                </p>
+                <p>
+                    Mental Health Association for Chinese Communities
+                </p>
+                <p>
+                    The Tapestry Network
+                </p>
+                <p>
+                    VK Cricket Academy
+                </p>
+                <p>
+                    Echo Church
+                </p>
+                <p>
+                    Bay Area Asian Deaf Association
+                </p>
+                <p>
+                    Fremont Morning Rotary Club
+                </p>
+                <p>
+                    Room Redux Bay Area
+                </p>
+                <p>
+                    ABWA- Pathfinder Chapter
+                </p>
+                <p>
+                    Abode Services
+                </p>
+                <p>
+                    Islamic Circle of North America-SF Bay Area
+                </p>
+                <p>
+                    Front Porch Communities and Services
+                </p>
+                <p>
+                    Bay Area Community Health
+                </p>
+                <p>
+                    Rotary Club of Niles (Fremont)
+                </p>
+                <p>
+                    workABLE Career Trends
+                </p>
+                <p>
+                    Tri City Nightingale
+                </p>
+                <p>
+                    Benny Rahmah Foundation, Inc.
+                </p>
+                <p>
+                    Citizens for Better Community
+                </p>
+                <p>
+                    Kiwanis Club of Fremont
+                </p>
+                <p>
+                    Tri-City Nonprofit Coalition
+                </p>
+                <p>
+                    Fremont Football & Cheer League
+                </p>
+                <p>
+                    Bay Philharmonic
+                </p>
+                <p>
+                    Rising Sun Center for Opportunity
+                </p>
+                <p>
+                    New Haven Schools Foundation
+                </p>
+                <p>
+                    Rungmunch - Theater with a Cause
+                </p>
+                <p>
+                    Fremont Parents' Nursery School
+                </p>
+                <p>
+                    Temple Beth Torah (Jewish)
+                </p>
+                <p>
+                    Community Child Care Council (4Cs) Of Alameda County
+                </p>
+                <p>
+                    Rental Housing Assn. of S. Alameda County
+                </p>
+                <p>
+                    Tri-City Volunteers, Inc. / Food Bank & Thrift Store
+                </p>
+                <p>
+                    Tri-City Band Corps
+                </p>
+                <p>
+                    Fremont Unified District Teachers Assoc.
+
+
+
+                </p>
 
             </div>
             </div>
@@ -45,8 +164,9 @@
             
               <style id="compiled-css" type="text/css">
                 #map_canvas  {
-                height: 50vw;
-                width: 50vw;
+                height: 760px;
+                width: 990px;
+                padding: 5px;
                 }
             </style>
         
@@ -75,9 +195,191 @@
         <script type='text/javascript'>
         
     var locations = [
-    ['Tule Ponds', '2000 Stevenson Blvd, Fremont, CA 94538', 'https://www.msnucleus.org/classes/tule.htm'],
-    ['humble abode', '1612 Hidden Creek Lane, Fremont, CA, 94538', 'https://www.youtube.com'],
-   
+  {
+    "name": "Music for Minors II",
+    "address": "P.O. Box 2661, Fremont, CA, 94536",
+    "url": "http://www.musicforminors2.org/"
+  },
+  {
+    "name": "Renaissance Entrepreneurship Center",
+    "address": "1500 Macdonald Avenue, Unit B, Richmond, CA, 94801",
+    "url": "https://rencenter.org/"
+  },
+  {
+    "name": "Afghan Elderly Association",
+    "address": "3300 Capital Ave, Blg B, Fremont, CA, 94538",
+    "url": "http://www.afghanelderlyassociation.org/"
+  },
+  {
+    "name": "My Good Brain",
+    "address": "3893 Fiano Common, Fremont, CA, 94555",
+    "url": "http://www.mygoodbrain.org/"
+  },
+  {
+    "name": "Rotary Club of Fremont",
+    "address": "P.O. Box 1507, Fremont, CA, 94538",
+    "url": "http://thefremontrotaryclub.org/"
+  },
+  {
+    "name": "Privilege Nonprofit",
+    "address": "38750 Paseo Padre Pkwy, Suite A10, Fremont, CA, 94536",
+    "url": "https://www.privilegenonprofit.org/"
+  },
+  {
+    "name": "Olive Hyde Art Guild",
+    "address": "PO Box 3073, Fremont, CA, 94539",
+    "url": "http://www.olivehydeartguild.org/"
+  },
+  {
+    "name": "Mental Health Association for Chinese Communities",
+    "address": "38750 Paseo Padre Pkwy, Ste C7, Fremont, CA, 94536",
+    "url": "https://www.mhacc-usa.org/"
+  },
+  {
+    "name": "The Tapestry Network",
+    "address": "Fremont, CA, 94538",
+    "url": "https://www.thetapestrynetwork.com/"
+  },
+  {
+    "name": "VK Cricket Academy",
+    "address": "Fremont, CA, 94536",
+    "url": "https://vkcricketacademy.com/"
+  },
+  {
+    "name": "Echo Church",
+    "address": "41386 Fremont Blvd, Fremont, CA, 94538",
+    "url": "http://www.echo.church/"
+  },
+  {
+    "name": "Bay Area Asian Deaf Association",
+    "address": "41041 Trimboli Way, PO #1505 , Fremont, CA, 94538",
+    "url": "http://www.baadaca.com/"
+  },
+  {
+    "name": "Fremont Morning Rotary Club",
+    "address": "P.O. Box 14665, Fremont, CA, 94539",
+    "url": "http://www.fremontmorningrotary.org/"
+  },
+  {
+    "name": "Room Redux Bay Area",
+    "address": "Fremont, CA, 94539",
+    "url": "https://bayareacali.roomredux.org/"
+  },
+  {
+    "name": "ABWA- Pathfinder Chapter",
+    "address": "43575 Mission Blvd, #409, Fremont, CA, 94539",
+    "url": "http://www.abwa-pathfinder.org/"
+  },
+  {
+    "name": "Abode Services",
+    "address": "40849 Fremont Blvd., Fremont, CA, 94538",
+    "url": "http://www.abodeservices.org/"
+  },
+  {
+    "name": "Islamic Circle of North America-SF Bay Area",
+    "address": "2086 Walsh Ave., Ste. A, Santa Clara, CA, 95050",
+    "url": "http://www.icnabayarea.org/"
+  },
+  {
+    "name": "Front Porch Communities and Services",
+    "address": "2185 N. California Blvd., Ste. 215, Walnut Creek, CA, 94596",
+    "url": "https://frontporch.net/community-services/"
+  },
+  {
+    "name": "Bay Area Community Health",
+    "address": "40910 Fremont Blvd., Fremont, CA, 94538",
+    "url": "http://www.bach.health/"
+  },
+  {
+    "name": "Rotary Club of Niles (Fremont)",
+    "address": "P.O. Box 7104, Fremont, CA, 94537",
+    "url": "http://www.nilesrotary.org/"
+  },
+  {
+    "name": "workABLE Career Trends",
+    "address": "39159 Paseo Padre Pkwy, Suite #204, Fremont, CA, 94538",
+    "url": "https://www.workablecareers.org/"
+  },
+  {
+    "name": "Tri City Nightingale",
+    "address": "Fremont, CA, 94536",
+    "url": "https://tricitynightingale.wordpress.com/"
+  },
+  {
+    "name": "Benny Rahmah Foundation, Inc.",
+    "address": "39488 Stevenson Pl., Ste. 100, Fremont, CA, 94539",
+    "url": "http://www.bennyrahmah.org/"
+  },
+  {
+    "name": "Citizens for Better Community",
+    "address": "P.O. Box 1, Fremont, CA, 94537",
+    "url": "http://www.cbcsfbay.org/"
+  },
+  {
+    "name": "Kiwanis Club of Fremont",
+    "address": "P. O. Box 2068, Niles District, Fremont, CA, 94536",
+    "url": "http://www.kiwanisfremont.org/"
+  },
+  {
+    "name": "Tri-City Nonprofit Coalition",
+    "address": "3601 Thornton Ave #14, Fremont, CA, 94536",
+    "url": "http://www.tcnpc.org/"
+  },
+  {
+    "name": "Fremont Football & Cheer League",
+    "address": "P.O. Box 624, Fremont, CA, 94537",
+    "url": "https://leagues.bluesombrero.com/Default.aspx?tabid=1048043"
+  },
+  {
+    "name": "Bay Philharmonic",
+    "address": "PO Box 104, Fremont, CA, 94537",
+    "url": "https://bayphil.org/"
+  },
+  {
+    "name": "Rising Sun Center for Opportunity",
+    "address": "1116 36th St, Oakland, CA, 94608",
+    "url": "http://www.risingsunopp.org/"
+  },
+  {
+    "name": "New Haven Schools Foundation",
+    "address": "P.O. Box 1574, Union City, CA, 94587",
+    "url": "http://www.nhsfoundation.org/"
+  },
+  {
+    "name": "Rungmunch - Theater with a Cause",
+    "address": "Fremont, CA, 94536",
+    "url": "http://www.rungmunch.org/"
+  },
+  {
+    "name": "Fremont Parents' Nursery School",
+    "address": "4200 Alder Ave., Fremont, CA, 94536",
+    "url": "http://www.fpns.org/"
+  },
+  {
+    "name": "Temple Beth Torah (Jewish)",
+    "address": "42000 Paseo Padre Pkwy, Fremont, CA, 94539",
+    "url": "http://www.bethtorah-fremont.org/"
+  },
+  {
+    "name": "Community Child Care Council (4Cs) Of Alameda County",
+    "address": "22351 City Center Dr., Hayward, CA, 94541",
+    "url": "https://4calameda.org/"
+  },
+  {
+    "name": "Rental Housing Assn. of S. Alameda County",
+    "address": "1264 A St., Hayward, CA, 94541",
+    "url": "http://www.rhasouthernala.com/"
+  },
+  {
+    "name": "Tri-City Volunteers, Inc. / Food Bank & Thrift Store",
+    "address": "37350 Joseph St., Fremont, CA, 94536",
+    "url": "http://www.tcvfoodbank.org/"
+  },
+  {
+    "name": "Fremont Unified District Teachers Assoc.",
+    "address": "39350 Civic Center Dr., Ste. 430, Fremont, CA, 94538",
+    "url": "http://www.fudta.org/"
+  }
 ];
 // start
 
@@ -109,11 +411,11 @@ google.maps.event.addDomListener(window, "load", initialize);
 
 
 function geocodeAddress(locations, i) {
-    var title = locations[i][0];
-    var address = locations[i][1];
-    var url = locations[i][2];
+    var title = locations[i].name;
+    var address = locations[i].address;
+    var url = locations[i].url;
     geocoder.geocode({
-        'address': locations[i][1]
+        'address': locations[i].address
     },
 
 
@@ -194,11 +496,30 @@ document.getElementById('goButton').addEventListener('click', function() {
     
         // always overwrite window.name, in case users try to set it manually
         window.name = "result"
+
+        function getDistance(lat1, lon1, lat2, lon2) {
+   const R = 6371; // Radius of the Earth in kilometers
+   const dLat = deg2rad(lat2 - lat1);
+   const dLon = deg2rad(lon2 - lon1);
+   const a =
+       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+       Math.sin(dLon / 2) * Math.sin(dLon / 2);
+   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+   const distance = R * c * 1000; // Convert to meters
+   return distance;
+}
+
+
+function deg2rad(deg) {
+       return deg * (Math.PI / 180);
+}
+
       </script>
     
 
     <footer>
-        <h1> <a href="https://docs.google.com/forms/d/1Q1T3GyR_QEzGjCAZBHCgVyo1WPxVO575cjgY2Coo9wc/prefill">Don't see your service opportunity? Click here</a></h1>
+        <h1> <a href="https://forms.gle/XpYcxHALwN4xUxYQA">Don't see your service opportunity? Click here</a></h1>
     </footer>
 
 
