@@ -1,19 +1,27 @@
+
+
 #map {
     height: 100%;
-}
-
+  }
+ 
+  /*
+   * Optional: Makes the sample page fill the window.
+   */
 a:-webkit-any-link{
     color:rgb(61, 200, 255);
-}
+  }
 
 .title {
+
     font-size: 2vw;
     font-family: "PT Sans", Calibri, Tahoma, sans-serif;
     color: white;
     text-align: center;
     background-color: #4d516d;
     padding: 15px;
+
 }
+
 
 footer {
     background: #4d516d;
@@ -26,6 +34,7 @@ footer {
     padding: 0;
     margin: 0;
     text-align: center;
+
 }
 
 #mapcanvas {
@@ -42,10 +51,12 @@ footer {
 .map { grid-area: map; }
 
 .grid-container {
-    display: flex;
+        display: flex;
     flex-direction: row;
+
     gap: 5px;
 }
+
 
 .menu {
     padding-top: 10px;
@@ -67,7 +78,6 @@ footer {
     padding-top: 0px;
     overflow-y: scroll;
     height: 535px;
-    scroll-behavior: smooth; /* enables smooth scrolling */
 }
 
 .placeInput2 {

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,240 +7,80 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <script
-    type="text/javascript"
-    src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
-    
-  ></script>
-
-    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,places&amp;key=AIzaSyBmXmBlrEMq5MWG81F8TBwU1JvUe86991g"></script>
-
-  <style id="compiled-css" type="text/css">
-    html, body, #map_canvas {
-    height: 500px;
-    width: 500px;
-    margin: 0px;
-    padding: 0px
-}
-
-    /* EOS */
-  </style>
-
-  <script id="insert"></script>
+  <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-    <input id="placeInput" type="text" placeholder="Enter a city">
-    <button id="goButton">Go</button>
-    <div id="map_canvas" style="width:750px; height:450px; border: 2px solid #3872ac;"></div>
+    <div class="grid-container">
+        <div class="threeitems">
+        <div class="title">
+            <h1>Service Maps</h1>
+        </div>
+        <div class="menu">
+            <input id="placeInput" type="text" placeholder="List Your City or State     ">
+            <button id="goButton">Go</button>
+            <div id="map"></div>
+        </div>
+        <!--<div class="list">
+            <p id="locationlist">
+              <script type='text/javascript'>
+                fetch('data.json')
+                .then(response => response.json())
+                .then(locations => {
+                  locations.getElementById("locationlist").innerHTML
+                })
+              </script>
+            </p>
+
+        </div>-->
+        </div>
+
+        <div class="map">
+          <script
+          type="text/javascript"
+          src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+          </script>
+      
+      
+          <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+      
+      
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,places&amp;key=AIzaSyBmXmBlrEMq5MWG81F8TBwU1JvUe86991g"></script>
+      
+      
+        <style id="compiled-css" type="text/css">
+          #map_canvas  {
+          height: 760px;
+          width: 990px;
+          padding: 5px;
+          }
+      </style>
+  
+  
+  
+  
+  
+        <script id="insert"></script>
+        <div id="map_canvas"></div>
 
 
-    <script type="text/javascript">//<![CDATA[
+
+      </div> 
+      
+    </div>
+
+  
 
 
-var locations = [
-  {
-    "name": "Music for Minors II",
-    "address": "P.O. Box 2661, Fremont, CA, 94536",
-    "url": "http://www.musicforminors2.org/"
-  },
-  {
-    "name": "Renaissance Entrepreneurship Center",
-    "address": "1500 Macdonald Avenue, Unit B, Richmond, CA, 94801",
-    "url": "https://rencenter.org/"
-  },
-  {
-    "name": "Afghan Elderly Association",
-    "address": "3300 Capital Ave, Blg B, Fremont, CA, 94538",
-    "url": "http://www.afghanelderlyassociation.org/"
-  },
-  {
-    "name": "My Good Brain",
-    "address": "3893 Fiano Common, Fremont, CA, 94555",
-    "url": "http://www.mygoodbrain.org/"
-  },
-  {
-    "name": "Rotary Club of Fremont",
-    "address": "P.O. Box 1507, Fremont, CA, 94538",
-    "url": "http://thefremontrotaryclub.org/"
-  },
-  {
-    "name": "Privilege Nonprofit",
-    "address": "38750 Paseo Padre Pkwy, Suite A10, Fremont, CA, 94536",
-    "url": "https://www.privilegenonprofit.org/"
-  },
-  {
-    "name": "Olive Hyde Art Guild",
-    "address": "PO Box 3073, Fremont, CA, 94539",
-    "url": "http://www.olivehydeartguild.org/"
-  },
-  {
-    "name": "Mental Health Association for Chinese Communities",
-    "address": "38750 Paseo Padre Pkwy, Ste C7, Fremont, CA, 94536",
-    "url": "https://www.mhacc-usa.org/"
-  },
-  {
-    "name": "The Tapestry Network",
-    "address": "Fremont, CA, 94538",
-    "url": "https://www.thetapestrynetwork.com/"
-  },
-  {
-    "name": "VK Cricket Academy",
-    "address": "Fremont, CA, 94536",
-    "url": "https://vkcricketacademy.com/"
-  },
-  {
-    "name": "Echo Church",
-    "address": "41386 Fremont Blvd, Fremont, CA, 94538",
-    "url": "http://www.echo.church/"
-  },
-  {
-    "name": "Bay Area Asian Deaf Association",
-    "address": "41041 Trimboli Way, PO #1505 , Fremont, CA, 94538",
-    "url": "http://www.baadaca.com/"
-  },
-  {
-    "name": "Fremont Morning Rotary Club",
-    "address": "P.O. Box 14665, Fremont, CA, 94539",
-    "url": "http://www.fremontmorningrotary.org/"
-  },
-  {
-    "name": "Room Redux Bay Area",
-    "address": "Fremont, CA, 94539",
-    "url": "https://bayareacali.roomredux.org/"
-  },
-  {
-    "name": "ABWA- Pathfinder Chapter",
-    "address": "43575 Mission Blvd, #409, Fremont, CA, 94539",
-    "url": "http://www.abwa-pathfinder.org/"
-  },
-  {
-    "name": "Abode Services",
-    "address": "40849 Fremont Blvd., Fremont, CA, 94538",
-    "url": "http://www.abodeservices.org/"
-  },
-  {
-    "name": "Islamic Circle of North America-SF Bay Area",
-    "address": "2086 Walsh Ave., Ste. A, Santa Clara, CA, 95050",
-    "url": "http://www.icnabayarea.org/"
-  },
-  {
-    "name": "Front Porch Communities and Services",
-    "address": "2185 N. California Blvd., Ste. 215, Walnut Creek, CA, 94596",
-    "url": "https://frontporch.net/community-services/"
-  },
-  {
-    "name": "Bay Area Community Health",
-    "address": "40910 Fremont Blvd., Fremont, CA, 94538",
-    "url": "http://www.bach.health/"
-  },
-  {
-    "name": "Rotary Club of Niles (Fremont)",
-    "address": "P.O. Box 7104, Fremont, CA, 94537",
-    "url": "http://www.nilesrotary.org/"
-  },
-  {
-    "name": "workABLE Career Trends",
-    "address": "39159 Paseo Padre Pkwy, Suite #204, Fremont, CA, 94538",
-    "url": "https://www.workablecareers.org/"
-  },
-  {
-    "name": "Tri City Nightingale",
-    "address": "Fremont, CA, 94536",
-    "url": "https://tricitynightingale.wordpress.com/"
-  },
-  {
-    "name": "Benny Rahmah Foundation, Inc.",
-    "address": "39488 Stevenson Pl., Ste. 100, Fremont, CA, 94539",
-    "url": "http://www.bennyrahmah.org/"
-  },
-  {
-    "name": "Citizens for Better Community",
-    "address": "P.O. Box 1, Fremont, CA, 94537",
-    "url": "http://www.cbcsfbay.org/"
-  },
-  {
-    "name": "Kiwanis Club of Fremont",
-    "address": "P. O. Box 2068, Niles District, Fremont, CA, 94536",
-    "url": "http://www.kiwanisfremont.org/"
-  },
-  {
-    "name": "Tri-City Nonprofit Coalition",
-    "address": "3601 Thornton Ave #14, Fremont, CA, 94536",
-    "url": "http://www.tcnpc.org/"
-  },
-  {
-    "name": "Fremont Football & Cheer League",
-    "address": "P.O. Box 624, Fremont, CA, 94537",
-    "url": "https://leagues.bluesombrero.com/Default.aspx?tabid=1048043"
-  },
-  {
-    "name": "Bay Philharmonic",
-    "address": "PO Box 104, Fremont, CA, 94537",
-    "url": "https://bayphil.org/"
-  },
-  {
-    "name": "Rising Sun Center for Opportunity",
-    "address": "1116 36th St, Oakland, CA, 94608",
-    "url": "http://www.risingsunopp.org/"
-  },
-  {
-    "name": "New Haven Schools Foundation",
-    "address": "P.O. Box 1574, Union City, CA, 94587",
-    "url": "http://www.nhsfoundation.org/"
-  },
-  {
-    "name": "Rungmunch - Theater with a Cause",
-    "address": "Fremont, CA, 94536",
-    "url": "http://www.rungmunch.org/"
-  },
-  {
-    "name": "Fremont Parents' Nursery School",
-    "address": "4200 Alder Ave., Fremont, CA, 94536",
-    "url": "http://www.fpns.org/"
-  },
-  {
-    "name": "Temple Beth Torah (Jewish)",
-    "address": "42000 Paseo Padre Pkwy, Fremont, CA, 94539",
-    "url": "http://www.bethtorah-fremont.org/"
-  },
-  {
-    "name": "Community Child Care Council (4Cs) Of Alameda County",
-    "address": "22351 City Center Dr., Hayward, CA, 94541",
-    "url": "https://4calameda.org/"
-  },
-  {
-    "name": "Rental Housing Assn. of S. Alameda County",
-    "address": "1264 A St., Hayward, CA, 94541",
-    "url": "http://www.rhasouthernala.com/"
-  },
-  {
-    "name": "Tri-City Volunteers, Inc. / Food Bank & Thrift Store",
-    "address": "37350 Joseph St., Fremont, CA, 94536",
-    "url": "http://www.tcvfoodbank.org/"
-  },
-  {
-    "name": "Tri-City Band Corps",
-    "address": "",
-    "url": "http://tricitybandcorps.org/"
-  },
-  {
-    "name": "Fremont Unified District Teachers Assoc.",
-    "address": "39350 Civic Center Dr., Ste. 430, Fremont, CA, 94538",
-    "url": "http://www.fudta.org/"
-  }
-]
-
-
+</head>
+<body>
+    <script type="text/javascript">
 
 
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
+
 
 function initialize() {
     map = new google.maps.Map(
@@ -252,21 +91,39 @@ function initialize() {
     });
     geocoder = new google.maps.Geocoder();
 
-    for (i = 0; i < locations.length; i++) {
 
 
-        geocodeAddress(locations, i);
-    }
+
+    fetch('data.json')
+       .then(response => response.json())
+       .then(locations => {
+           locations.forEach(location => {
+               geocodeAddress(location);
+           });
+       })
+       .catch(error => console.error("Failed to load locations:", error));
 }
+
+
+    // for (i = 0; i < locations.length; i++) {
+
+
+
+
+    //     geocodeAddress(locations, i);
+    // }
+//}
 google.maps.event.addDomListener(window, "load", initialize);
 
-function geocodeAddress(locations, i) {
-    var title = locations[i].name;
-    var address = locations[i].address;
-    var url = locations[i].url;
+
+function geocodeAddress(location) {
+    var title = location.name;
+    var address = location.address;
+    var url = location.url;
     geocoder.geocode({
-        'address': locations[i].address
+        'address': address
     },
+
 
     function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -288,6 +145,7 @@ function geocodeAddress(locations, i) {
     });
 }
 
+
 function infoWindow(marker, map, title, address, url) {
     google.maps.event.addListener(marker, 'click', function () {
         var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a href='" + url + "'>View location</a></p></div>";
@@ -298,6 +156,7 @@ function infoWindow(marker, map, title, address, url) {
         iw.open(map, marker);
     });
 }
+
 
 function createMarker(results) {
     var marker = new google.maps.Marker({
@@ -316,23 +175,67 @@ function createMarker(results) {
 }
 
 
+function createMarker(results) {
+    var marker = new google.maps.Marker({
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue.png',
+        map: map,
+        position: results[0].geometry.location,
+        title: title,
+        animation: google.maps.Animation.DROP,
+        address: address,
+        url: url,
+        des: des,
+    })
+    bounds.extend(marker.getPosition());
+    map.fitBounds(bounds);
+    infoWindow(marker, map, title, address, url, des);
+    return marker;
+}
 
 
-  //]]></script>
+document.getElementById('goButton').addEventListener('click', function() {
+   var geocoder = new google.maps.Geocoder();
+   var address = document.getElementById('placeInput').value;
 
-  <script>
+
+
+
+   geocoder.geocode({ 'address': address }, function (results, status) {
+       if (status == google.maps.GeocoderStatus.OK) {
+           map.setCenter(results[0].geometry.location);
+           var marker = new google.maps.Marker({
+               map: map,
+               position: results[0].geometry.location,
+               title: address
+           });
+       } else {
+           alert('Geocode was not successful for the following reason: ' + status);
+       }
+   });
+});
+
+
+
+
     // tell the embed parent frame the height of the content
-    if (window.parent && window.parent.parent){
-      window.parent.parent.postMessage(["resultsFrame", {
-        height: document.body.getBoundingClientRect().height,
-        slug: "5zorLwa4"
-      }], "*")
-    }
+      if (window.parent && window.parent.parent){
+        window.parent.parent.postMessage(["resultsFrame", {
+          height: document.body.getBoundingClientRect().height,
+          slug: "5zorLwa4"
+        }], "*")
+      }
+
 
     // always overwrite window.name, in case users try to set it manually
-    window.name = "result"
+      window.name = "result"
   </script>
 
+<footer>
+  <h1> <a href="https://forms.gle/XpYcxHALwN4xUxYQA">Don't see your service opportunity? Click here</a></h1>
+</footer>
 
 </body>
 </html>
+
+
+
