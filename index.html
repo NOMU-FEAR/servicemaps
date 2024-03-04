@@ -1,200 +1,49 @@
+
+<!DOCTYPE html>
 <html>
-    <body style="background-color:white;"></body>
-    <head>
-        
-
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <title></title>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <meta name="robots" content="noindex, nofollow">
-      <meta name="googlebot" content="noindex, nofollow">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="styles.css">
-      
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-
+  <script
+    type="text/javascript"
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
     
-    
-    </head>
-    <body>
-        <div class="grid-container">
-            <div class="threeitems">
-            <div class="title">
-                <h1>Service Maps</h1>
-            </div>
-            <div class="menu">
-                <input id="placeInput" type="text" placeholder="List Your City or State     ">
-                <button id="goButton">Go</button>
-                <div id="map"></div>
-            </div>
-            <div class="list">
-                <p>
-                    Music for Minors II
-                </p>
-                <p>
-                    Renissance Entrepreneurship Center
-                </p>
-                <p>
-                    Afghan Elderly Association
-                </p>
-                <p>
-                    My Good Brain
-                </p>
-                <p>
-                    Rotary Club of Fremont
-                </p>
-                <p>
-                    Privilege Nonprofit
-                </p>
-                <p>
-                    Olive Hyde Art Guild
-                </p>
-                <p>
-                    Mental Health Association for Chinese Communities
-                </p>
-                <p>
-                    The Tapestry Network
-                </p>
-                <p>
-                    VK Cricket Academy
-                </p>
-                <p>
-                    Echo Church
-                </p>
-                <p>
-                    Bay Area Asian Deaf Association
-                </p>
-                <p>
-                    Fremont Morning Rotary Club
-                </p>
-                <p>
-                    Room Redux Bay Area
-                </p>
-                <p>
-                    ABWA- Pathfinder Chapter
-                </p>
-                <p>
-                    Abode Services
-                </p>
-                <p>
-                    Islamic Circle of North America-SF Bay Area
-                </p>
-                <p>
-                    Front Porch Communities and Services
-                </p>
-                <p>
-                    Bay Area Community Health
-                </p>
-                <p>
-                    Rotary Club of Niles (Fremont)
-                </p>
-                <p>
-                    workABLE Career Trends
-                </p>
-                <p>
-                    Tri City Nightingale
-                </p>
-                <p>
-                    Benny Rahmah Foundation, Inc.
-                </p>
-                <p>
-                    Citizens for Better Community
-                </p>
-                <p>
-                    Kiwanis Club of Fremont
-                </p>
-                <p>
-                    Tri-City Nonprofit Coalition
-                </p>
-                <p>
-                    Fremont Football & Cheer League
-                </p>
-                <p>
-                    Bay Philharmonic
-                </p>
-                <p>
-                    Rising Sun Center for Opportunity
-                </p>
-                <p>
-                    New Haven Schools Foundation
-                </p>
-                <p>
-                    Rungmunch - Theater with a Cause
-                </p>
-                <p>
-                    Fremont Parents' Nursery School
-                </p>
-                <p>
-                    Temple Beth Torah (Jewish)
-                </p>
-                <p>
-                    Community Child Care Council (4Cs) Of Alameda County
-                </p>
-                <p>
-                    Rental Housing Assn. of S. Alameda County
-                </p>
-                <p>
-                    Tri-City Volunteers, Inc. / Food Bank & Thrift Store
-                </p>
-                <p>
-                    Tri-City Band Corps
-                </p>
-                <p>
-                    Fremont Unified District Teachers Assoc.
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,places&amp;key=AIzaSyBmXmBlrEMq5MWG81F8TBwU1JvUe86991g"></script>
+
+  <style id="compiled-css" type="text/css">
+    html, body, #map_canvas {
+    height: 500px;
+    width: 500px;
+    margin: 0px;
+    padding: 0px
+}
+
+    /* EOS */
+  </style>
+
+  <script id="insert"></script>
+
+</head>
+<body>
+    <input id="placeInput" type="text" placeholder="Enter a city">
+    <button id="goButton">Go</button>
+    <div id="map_canvas" style="width:750px; height:450px; border: 2px solid #3872ac;"></div>
 
 
-
-                </p>
-
-            </div>
-            </div>
-            <div class="map">
-                <script
-                type="text/javascript"
-                src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-                </script>
-            
-            
-                <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-            
-            
-                  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,places&amp;key=AIzaSyBmXmBlrEMq5MWG81F8TBwU1JvUe86991g"></script>
-            
-            
-              <style id="compiled-css" type="text/css">
-                #map_canvas  {
-                height: 760px;
-                width: 990px;
-                padding: 5px;
-                }
-            </style>
-        
-        
-        
-        
-        
-              <script id="insert"></script>
-              <div id="map_canvas"></div>
+    <script type="text/javascript">//<![CDATA[
 
 
-
-            </div> 
-            
-          </div>
-
-
-
-
-
-        
-    
-    
-    
-    
-        <script type='text/javascript'>
-        
-    var locations = [
+var locations = [
   {
     "name": "Music for Minors II",
     "address": "P.O. Box 2661, Fremont, CA, 94536",
@@ -376,20 +225,25 @@
     "url": "http://www.tcvfoodbank.org/"
   },
   {
+    "name": "Tri-City Band Corps",
+    "address": "",
+    "url": "http://tricitybandcorps.org/"
+  },
+  {
     "name": "Fremont Unified District Teachers Assoc.",
     "address": "39350 Civic Center Dr., Ste. 430, Fremont, CA, 94538",
     "url": "http://www.fudta.org/"
   }
-];
-// start
+]
+
+
+
 
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
 
-
 function initialize() {
-    console.log("hello world")
     map = new google.maps.Map(
     document.getElementById("map_canvas"), {
         center: new google.maps.LatLng(37.4419, -122.1419),
@@ -398,17 +252,13 @@ function initialize() {
     });
     geocoder = new google.maps.Geocoder();
 
-
     for (i = 0; i < locations.length; i++) {
-
-
 
 
         geocodeAddress(locations, i);
     }
 }
 google.maps.event.addDomListener(window, "load", initialize);
-
 
 function geocodeAddress(locations, i) {
     var title = locations[i].name;
@@ -417,7 +267,6 @@ function geocodeAddress(locations, i) {
     geocoder.geocode({
         'address': locations[i].address
     },
-
 
     function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -439,7 +288,6 @@ function geocodeAddress(locations, i) {
     });
 }
 
-
 function infoWindow(marker, map, title, address, url) {
     google.maps.event.addListener(marker, 'click', function () {
         var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a href='" + url + "'>View location</a></p></div>";
@@ -450,7 +298,6 @@ function infoWindow(marker, map, title, address, url) {
         iw.open(map, marker);
     });
 }
-
 
 function createMarker(results) {
     var marker = new google.maps.Marker({
@@ -468,62 +315,24 @@ function createMarker(results) {
     return marker;
 }
 
-document.getElementById('goButton').addEventListener('click', function() {
-    var geocoder = new google.maps.Geocoder();
-    var address = document.getElementById('placeInput').value;
-    geocoder.geocode({ 'address': address }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location,
-                title: address
-            });
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
-    });
-});
-
-        // tell the embed parent frame the height of the content
-        if (window.parent && window.parent.parent){
-          window.parent.parent.postMessage(["resultsFrame", {
-            height: document.body.getBoundingClientRect().height,
-            slug: "5zorLwa4"
-          }], "*")
-        }
-    
-    
-        // always overwrite window.name, in case users try to set it manually
-        window.name = "result"
-
-        function getDistance(lat1, lon1, lat2, lon2) {
-   const R = 6371; // Radius of the Earth in kilometers
-   const dLat = deg2rad(lat2 - lat1);
-   const dLon = deg2rad(lon2 - lon1);
-   const a =
-       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-       Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-       Math.sin(dLon / 2) * Math.sin(dLon / 2);
-   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-   const distance = R * c * 1000; // Convert to meters
-   return distance;
-}
 
 
-function deg2rad(deg) {
-       return deg * (Math.PI / 180);
-}
 
-      </script>
-    
+  //]]></script>
 
-    <footer>
-        <h1> <a href="https://forms.gle/XpYcxHALwN4xUxYQA">Don't see your service opportunity? Click here</a></h1>
-    </footer>
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "5zorLwa4"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
 
 
-    </body>
-
-
-    </html>
+</body>
+</html>
