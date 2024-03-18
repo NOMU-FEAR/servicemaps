@@ -8,10 +8,10 @@ var locations = [
 var geocoder;
 var map;
 var bounds = new google.maps.LatLngBounds();
+var previousInfoWindow = false;
 
 
 function initialize() {
-    console.log("hello world")
     map = new google.maps.Map(
     document.getElementById("map_canvas"), {
         center: new google.maps.LatLng(37.4419, -122.1419),
@@ -21,23 +21,27 @@ function initialize() {
     geocoder = new google.maps.Geocoder();
 
 
-    for (i = 0; i < locations.length; i++) {
 
 
-
-
-        geocodeAddress(locations, i);
-    }
+    fetch('data.json')
+       .then(response => response.json())
+       .then(locations => {
+           locations.forEach(location => {
+               geocodeAddress(location);
+           });
+       })
+       .catch(error => console.error("Failed to load locations:", error));
 }
+
 google.maps.event.addDomListener(window, "load", initialize);
 
 
-function geocodeAddress(locations, i) {
-    var title = locations[i][0];
-    var address = locations[i][1];
-    var url = locations[i][2];
+function geocodeAddress(location) {
+    var title = location.name;
+    var address = location.address;
+    var url = location.url;
     geocoder.geocode({
-        'address': locations[i][1]
+        'address': address
     },
 
 
@@ -58,20 +62,38 @@ function geocodeAddress(locations, i) {
         } else {
             alert("geocode of " + address + " failed:" + status);
         }
-    });
+    }, {once:true});
 }
 
 
 function infoWindow(marker, map, title, address, url) {
+    
+
     google.maps.event.addListener(marker, 'click', function () {
         var html = "<div><h3>" + title + "</h3><p>" + address + "<br></div><a href='" + url + "'>View location</a></p></div>";
-        iw = new google.maps.InfoWindow({
+        // function load() {
+        //     document.body.removeEventListener('click', load)
+        //     window.open('https://google.com/', '_blank')
+            
+        // }
+
+        // window.onload = function() {
+        //     document.body.addEventListener('click', load)
+        // }
+
+        var iw = new google.maps.InfoWindow({
             content: html,
             maxWidth: 350
         });
+        if (previousInfoWindow) {
+            previousInfoWindow.close()
+        }
+        previousInfoWindow = iw
         iw.open(map, marker);
     });
 }
+
+
 
 
 function createMarker(results) {
@@ -82,27 +104,48 @@ function createMarker(results) {
         title: title,
         animation: google.maps.Animation.DROP,
         address: address,
-        url: url
+        url: url,
+        des: des,
     })
     bounds.extend(marker.getPosition());
     map.fitBounds(bounds);
-    infoWindow(marker, map, title, address, url);
+    infoWindow(marker, map, title, address, url, des);
     return marker;
 }
 
+
 document.getElementById('goButton').addEventListener('click', function() {
-    var geocoder = new google.maps.Geocoder();
-    var address = document.getElementById('placeInput').value;
-    geocoder.geocode({ 'address': address }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            map.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location,
-                title: address
-            });
-        } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-        }
-    });
+   var geocoder = new google.maps.Geocoder();
+   var address = document.getElementById('placeInput').value;
+
+
+
+
+   geocoder.geocode({ 'address': address }, function (results, status) {
+       if (status == google.maps.GeocoderStatus.OK) {
+           map.setCenter(results[0].geometry.location);
+           var marker = new google.maps.Marker({
+               map: map,
+               position: results[0].geometry.location,
+               title: address
+           });
+       } else {
+           alert('Geocode was not successful for the following reason: ' + status);
+       }
+   });
 });
+
+
+
+
+    // tell the embed parent frame the height of the content
+      if (window.parent && window.parent.parent){
+        window.parent.parent.postMessage(["resultsFrame", {
+          height: document.body.getBoundingClientRect().height,
+          slug: "5zorLwa4"
+        }], "*")
+      }
+
+
+    // always overwrite window.name, in case users try to set it manually
+      window.name = "result"
